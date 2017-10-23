@@ -20,7 +20,6 @@
             android:layout_weight="1"
             android:hint="Movie Title"
             android:maxLines="1"
-            android:shadowColor="#FF80CBC4"
             android:textSize="32dp" />
 
         <Button
