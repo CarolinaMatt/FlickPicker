@@ -20,6 +20,7 @@
             android:layout_weight="1"
             android:hint="Movie Title"
             android:maxLines="1"
+            android:shadowColor="#FF80CBC4"
             android:textSize="32dp" />
 
         <Button
@@ -32,10 +33,10 @@
             android:id="@+id/pickMovie"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:onClick="pickMovie"
             android:layout_gravity="center_vertical"
-            android:text="Pick!"
             android:backgroundTint="@color/colorAccent"
+            android:onClick="pickMovie"
+            android:text="Pick!"
             />
     </LinearLayout>
 
