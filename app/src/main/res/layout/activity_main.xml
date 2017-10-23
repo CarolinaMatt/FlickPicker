@@ -31,10 +31,9 @@
 
         <Button
             android:id="@+id/pickMovie"
+            style="@style/accentColor2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:backgroundTint="@color/colorAccent"
             android:onClick="pickMovie"
             android:text="Pick!"
             />

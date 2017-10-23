@@ -1,13 +1,17 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat">
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="windowNoTitle">true</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">#FF80CBC4</item>
+    </style>
 
+    <style name="accentColor2">
+        <item name="android:backgroundTint">#FF4081</item>
+        <item name="android:layout_gravity">center_vertical</item>
     </style>
 
 </resources>
