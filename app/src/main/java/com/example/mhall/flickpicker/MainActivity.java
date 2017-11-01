@@ -25,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String[] items={"No movies yet."};
-        movieList = new ArrayList<String>(Arrays.asList(items));
+        movieList = new ArrayList<String>();
         adapter=new ArrayAdapter<String>(this,R.layout.list,R.id.movieTextView,movieList);
         listV = (ListView)findViewById(R.id.list);
         listV.setAdapter(adapter);
@@ -42,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"Can't add a blank movie.",Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    if (movieList.get(0).contains("No movies yet")) {
-                        movieList.remove(0);
-                    }
+                    //remove placeholder
+                    TextView placeholder = (TextView) findViewById(R.id.placeholder);
+                    placeholder.setVisibility(View.GONE);
 
                     // add new item to arraylist
                     movieList.add(movie);
@@ -54,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                     //clear input box
                     inputBox.setText("");
                 }
-
             }
         });
     }

@@ -38,6 +38,13 @@
             android:text="Pick!"
             />
     </LinearLayout>
+    <TextView
+        android:id="@+id/placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No movies yet."
+        android:textSize="28dp"
+        android:layout_marginBottom="5dp"/>
 
     <ListView
         android:id="@+id/list"
