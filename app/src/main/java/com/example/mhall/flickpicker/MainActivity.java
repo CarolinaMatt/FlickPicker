@@ -14,10 +14,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import static android.R.id.edit;
-import static android.R.id.list;
-import static com.example.mhall.flickpicker.R.id.addMovie;
-import static com.example.mhall.flickpicker.R.id.movieInput;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -40,17 +36,25 @@ public class MainActivity extends AppCompatActivity {
         addMovieBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (movieList.get(0).contains("No movies yet")){
-                    movieList.remove(0);
-                }
                 String movie = inputBox.getText().toString();
-                // add new item to arraylist
-                movieList.add(movie);
-                // notify listview of data changed
-                adapter.notifyDataSetChanged();
 
-                //clear input box
-                inputBox.setText("");
+                if (movie.equals("")){
+                    Toast.makeText(MainActivity.this,"Can't add a blank movie.",Toast.LENGTH_SHORT).show();
+                    return;
+                } else {
+                    if (movieList.get(0).contains("No movies yet")) {
+                        movieList.remove(0);
+                    }
+
+                    // add new item to arraylist
+                    movieList.add(movie);
+                    // notify listview of data changed
+                    adapter.notifyDataSetChanged();
+
+                    //clear input box
+                    inputBox.setText("");
+                }
+
             }
         });
     }
@@ -58,9 +62,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void pickMovie(View v){
         int numMovies = movieList.size();
-        int selectedMovie = (int) Math.floor(Math.random() * numMovies);
-
-        displaySelectedMovie(selectedMovie);
+        switch (numMovies){
+            case 0:
+                Toast.makeText(MainActivity.this, "No movies to pick from!", Toast.LENGTH_SHORT).show();
+                break;
+            case 1:
+                Toast.makeText(MainActivity.this, "...really?", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                int selectedMovie = (int) Math.floor(Math.random() * numMovies);
+                displaySelectedMovie(selectedMovie);
+        }
     }
 
     public void displaySelectedMovie(int selectedMovie){
